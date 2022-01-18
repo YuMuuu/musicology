@@ -1,24 +1,22 @@
 package cadenza
 
-
 import com.flowtick.graphs.Relation
 import com.flowtick.graphs.defaults.id.identifyAny
 
 sealed trait Cadenza
 
-object Cadenza {
+object Cadenza:
   case object T extends Cadenza
 
   case object S extends Cadenza
 
   case object D extends Cadenza
-}
 
-object CadenzaGraph {
+object CadenzaGraph:
 
-  import cadenza.Cadenza._
+  import cadenza.Cadenza.*
   import com.flowtick.graphs.Graph
-  import com.flowtick.graphs.defaults._
+  import com.flowtick.graphs.defaults.*
 
   val a: Relation[Unit, Cadenza] = (T: Cadenza) --> ((), S: Cadenza)
   val b: Relation[Unit, Cadenza] = (S: Cadenza) --> ((), D: Cadenza)
@@ -28,6 +26,5 @@ object CadenzaGraph {
   val f: Relation[Unit, Cadenza] = (S: Cadenza) --> ((), S: Cadenza)
   val g: Relation[Unit, Cadenza] = (D: Cadenza) --> ((), D: Cadenza)
 
-  val graph: Graph[Unit, Cadenza] = Graph.fromEdges(Set[Relation[Unit, Cadenza]](a, b, c, e, f, g))
-
-}
+  val graph: Graph[Unit, Cadenza] =
+    Graph.fromEdges(Set[Relation[Unit, Cadenza]](a, b, c, e, f, g))

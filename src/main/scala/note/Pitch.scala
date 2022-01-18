@@ -1,26 +1,27 @@
 package note
 
-/**
- * 全体的な音程を表す / 音程の操作を表す
- *
- * @param fifths c4から何回五度上に移動したか
- * @param octave fifthsからoctave上に何回移動したか
- */
-case class Pitch(fifths: Int, octave: Int) {
-  def +(interval: Interval): Pitch = Pitch(this.fifths + interval.fifths, this.octave + interval.octave)
+/** 全体的な音程を表す / 音程の操作を表す
+  *
+  * @param fifths
+  *   c4から何回五度上に移動したか
+  * @param octave
+  *   fifthsからoctave上に何回移動したか
+  */
+case class Pitch(fifths: Int, octave: Int):
+  def +(interval: Interval): Pitch =
+    Pitch(this.fifths + interval.fifths, this.octave + interval.octave)
 
-  def -(pitch: Pitch): Interval = Interval(this.fifths - pitch.fifths, this.octave - pitch.octave)
+  def -(pitch: Pitch): Interval =
+    Interval(this.fifths - pitch.fifths, this.octave - pitch.octave)
 
   def midiNoteNumber(): Int = 60 + fifths * 7 + octave * 12
-
 
   def sharp(): Pitch = this + Interval(7, -4)
 
   //fを定義してflatMapにしたい
   def flat(): Pitch = this + Interval(-7, 4)
-}
 
-object Pitch {
+object Pitch:
   val dbb4 = Pitch(-12, 7)
   val abb4 = Pitch(-11, 7)
   val ebb4 = Pitch(-10, 6)
@@ -49,15 +50,12 @@ object Pitch {
   val es4 = Pitch(11, -6)
   val bs4 = Pitch(12, -7)
   //memo: 必要になったら足す
-}
 
-/**
- * 相対的な音程を表す
- *
- * @param fifths c4から何回五度上に移動したか
- * @param octave fifthsからoctave上に何回移動したか
- */
+/** 相対的な音程を表す
+  *
+  * @param fifths
+  *   c4から何回五度上に移動したか
+  * @param octave
+  *   fifthsからoctave上に何回移動したか
+  */
 case class Interval(fifths: Int, octave: Int)
-
-
-
