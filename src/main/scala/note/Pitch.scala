@@ -49,7 +49,7 @@ object Pitch:
   val as4 = Pitch(10, -6)
   val es4 = Pitch(11, -6)
   val bs4 = Pitch(12, -7)
-  //memo: 必要になったら足す
+//memo: 必要になったら足す
 
 /** 相対的な音程を表す
   *
