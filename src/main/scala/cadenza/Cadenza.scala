@@ -1,6 +1,5 @@
 package cadenza
 
-
 sealed trait Cadenza
 
 object Cadenza:

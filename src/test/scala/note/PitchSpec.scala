@@ -3,7 +3,7 @@ package note
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should
 
-class PitchSpec extends AnyFlatSpec with should.Matchers {
+class PitchSpec extends AnyFlatSpec with should.Matchers:
 
   "pitch" should "c4の5度上がg4になる" in {
     Pitch.c4 + Interval(1, 0) shouldBe Pitch.g4
@@ -58,6 +58,4 @@ class PitchSpec extends AnyFlatSpec with should.Matchers {
     Pitch.gs4.midiNoteNumber() shouldBe 68
     Pitch.ab4.midiNoteNumber() shouldBe 68
 
-
   }
-}
