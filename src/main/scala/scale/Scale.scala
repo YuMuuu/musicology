@@ -20,7 +20,7 @@ import cats.data.NonEmptySet
 trait Scale:
   def base: Pitch
   def notes: NonEmptyList[Interval] //NonEmptySetのほうが正しい？
-  val pitches: NonEmptyList[Pitch] = notes.map(base + _)
+  val oneOctavetangePitches: NonEmptyList[Pitch] = notes.map(base + _) //１オクターブ内のスケールの音程
 
 case class MajorScale(base: Pitch) extends Scale:
   def notes = NonEmptyList.of(
@@ -44,7 +44,7 @@ case class MinorScale(base: Pitch) extends Scale:
     Interval(-2, 1)
   )
 
-object ScalaImpl:
+object ScaleImpl:
   val cMajorScale: MajorScale = MajorScale(Pitch.c4)
   val dMajorScale: MajorScale = MajorScale(Pitch.d4)
   val eMajorScale: MajorScale = MajorScale(Pitch.e4)

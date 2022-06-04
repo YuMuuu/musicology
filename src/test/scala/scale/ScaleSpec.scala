@@ -9,7 +9,7 @@ import cats.data.NonEmptyList
 class ScaleSpec extends AnyFlatSpec with should.Matchers:
 
   "major scala" should "c major scaleの構成音がドレミファソラシである" in {
-    ScalaImpl.cMajorScale.pitches shouldBe NonEmptyList.of(
+    ScaleImpl.cMajorScale.oneOctavetangePitches shouldBe NonEmptyList.of(
       Pitch.c4,
       Pitch.d4,
       Pitch.e4,
@@ -21,7 +21,7 @@ class ScaleSpec extends AnyFlatSpec with should.Matchers:
   }
 
   "minor scala" should "c major scaleの構成音がドレミbファソラbシbである" in {
-    ScalaImpl.cMinorScale.pitches shouldBe NonEmptyList.of(
+    ScaleImpl.cMinorScale.oneOctavetangePitches shouldBe NonEmptyList.of(
       Pitch.c4,
       Pitch.d4,
       Pitch.eb4,
