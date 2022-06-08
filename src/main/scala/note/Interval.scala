@@ -19,10 +19,8 @@ case class Interval(fifths: Int, octave: Int):
 object Interval:
   val unit = Interval(0, 0) //基準音
 
-
   val oneOctaveUp = Interval(0, 1)
   val oneOctaveDown = Interval(0, -1)
-
 
 object NamedInterval {
   // 各サイト記述が足りなかったり間違えてたりする
@@ -35,20 +33,15 @@ object NamedInterval {
   //http://guitarex.web.fc2.com/knowledge/degree_5.html
   //- ただしそう
 
-
-
   // - 完全系
   //   - 1 4 5 8
   // - 長短系
   //   - 2 3 6 7
 
-  
   // 下記が全パターンある？？　減1度なんて存在するのか？
   //  n = 1, 4, 5, 6
-  //  m = 2, 3, 6, 7 
+  //  m = 2, 3, 6, 7
   //  重減n 減n 完全n 増n 重減n
   //  重減m 減m 短m 長m 重増m
-  
+
 }
-
-
